@@ -6,12 +6,15 @@
 using namespace std;
 
 void letterHist(string);
+void minuscula(string &);
 int repite(char,string);
 bool esta(char,string);
 
 int main()
 {
     string palabra;
+
+    //Matematica
 
     cout<<"Ingrese una palabra cualquiera: "; cin>>palabra;
     cout<<"\n***"<<palabra<<"***\n\nCANTIDAD DE LETRAS REPETIDAS:\n\n";
@@ -22,10 +25,11 @@ int main()
 
 void letterHist(string pal)
 {
+    minuscula(pal);
     string norepetir = "";
     for (int i=0; i<pal.length(); i++)
     {
-        if (esta(pal[i],pal) && repite(pal[i],pal)>0 && esta(pal[i],norepetir) == false)
+        if (repite(pal[i],pal)>0 && esta(pal[i],norepetir) == false)
         {
           cout<<pal[i]<<": ";
           norepetir += pal[i];
@@ -35,6 +39,7 @@ void letterHist(string pal)
         }      
     }
 }
+
 int repite(char letra, string palabra)
 {
     int cont = 0;
@@ -45,6 +50,7 @@ int repite(char letra, string palabra)
     }
     return cont;
 }
+
 bool esta(char letra, string palabra)
 {
     for (int i=0; i < palabra.length(); i++)
@@ -53,4 +59,10 @@ bool esta(char letra, string palabra)
            return true;
     }
     return false;
+}
+
+void minuscula(string &pal)
+{
+    for (int i = 0; i < pal.length(); i++)
+       pal[i] = tolower(pal[i]);
 }
