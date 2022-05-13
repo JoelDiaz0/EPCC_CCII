@@ -13,9 +13,7 @@ bool esta(char,string);
 int main()
 {
     string palabra;
-
-    //Matematica
-
+    
     cout<<"Ingrese una palabra cualquiera: "; cin>>palabra;
     cout<<"\n***"<<palabra<<"***\n\nCANTIDAD DE LETRAS REPETIDAS:\n\n";
     letterHist(palabra);
