@@ -2,7 +2,6 @@
 //The goal of this exercise is to program a Guess My Number game. When it's finished, it should work like this:
 
 #include <iostream>
-#include <random>
 #include <time.h>
 using namespace std;
 
