@@ -7,9 +7,11 @@
 #include <map>
 using namespace std;
 
-string minuscula(string &);
+void minuscula(string &);
 string palabra_mas_grande(map<string,int>);
 void limpiar_palabras(map<string,int> &);
+bool detecta_numeros(string);
+void mostrar_map(const map<string,int>);
 
 int main()
 {
@@ -25,18 +27,18 @@ int main()
       ++Mymap[palabra];
 
   } while (palabra!="0");
-  
-  for (auto element: Mymap)
-    cout<<element.first<<"\t"<<element.second<<endl;
+
+  cout<<endl;
+
+  mostrar_map(Mymap);
 
   cout<<"La palabra mas grande es: "<<palabra_mas_grande(Mymap)<<endl;
   cout<<"\n***ELIMINANDO PALABRAS NO ALFAVETICAS***\n";
 
   limpiar_palabras(Mymap);
 
-  for (auto element: Mymap)
-    cout<<element.first<<"\t"<<element.second<<endl;
-  
+  mostrar_map(Mymap);
+
   return 0;
 }
 
@@ -55,30 +57,40 @@ string palabra_mas_grande(map<string,int> Map)
     return mayor;
 }
 
-void limpiar_palabras(map<string,int> &Map)
+void limpiar_palabras(map<string, int> &M)
 {
-    map<string,int> :: iterator iter;
-    string aux;
-
-    for (iter=Map.begin(); iter!=Map.end(); iter++)
+  for (auto element: M)
+  {
+    if (detecta_numeros(element.first))
     {
-        aux = iter->first;
-        for (int i=0; i<aux.length(); i++)
-        {
-            for (char c=48; c<=57; c++)
-            {
-              if (aux[i] == c)
-                Map.erase(aux);
-            }
-        }
+       M.erase(element.first);
+       break;
     }
+  }
 }
 
-string minuscula(string &pal)
+bool detecta_numeros(string pal)
+{
+  for (int i = 0; i < pal.length(); i++)
+  {
+    for (char j = 48; j < 58; j++)
+    {
+      if (pal[i] == j)
+        return true;
+    }
+  }
+  return false;
+}
+
+void minuscula(string &pal)
 {
   for (int i=0; i<pal.length(); i++)
-  {
     pal[i]=tolower(pal[i]);
-  }
-  return pal;
+}
+
+void mostrar_map(const map<string,int> m)
+{
+  for (auto element: m)
+    cout<<element.first<<"  "<<element.second<<endl;
+  cout<<endl;
 }
