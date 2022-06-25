@@ -27,6 +27,12 @@ Racional::Racional(int x_num, int y_den)
 	}
 }
 
+Racional::Racional(const Racional& copia)
+{
+	x_num = copia.x_num;
+	y_den = copia.y_den;
+}
+
 Racional::~Racional()
 {
 

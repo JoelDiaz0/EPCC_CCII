@@ -9,6 +9,7 @@ class Racional
 public:
 	Racional();
 	Racional(int x_num, int y_num);
+	Racional(const Racional& copia);
 	~Racional();
 	double valor_aproximado();
 
