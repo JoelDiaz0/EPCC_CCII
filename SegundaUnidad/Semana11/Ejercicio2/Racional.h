@@ -12,7 +12,6 @@ public:
 	Racional(const Racional& copia);
 	~Racional();
 	double valor_aproximado();
-
 public:
 	Racional& operator=(const Racional& r1);
 	Racional& operator+=(const Racional& r1);
@@ -22,7 +21,6 @@ public:
 
 	friend std::istream& operator>>(std::istream& i, Racional& r1);
 	friend std::ostream& operator<<(std::ostream& o, Racional& r2);
-
 private:
 	bool coprimos(int x_num, int y_den);
 	void divisores(std::vector<int>&, int num);

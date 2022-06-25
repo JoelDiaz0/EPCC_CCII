@@ -126,6 +126,7 @@ std::istream& operator>>(std::istream& i, Racional& r1)
 	return i;
 }
 
+
 std::ostream& operator<<(std::ostream& o, Racional& r1)
 {
 	o << r1.x_num << "/" << r1.y_den;
